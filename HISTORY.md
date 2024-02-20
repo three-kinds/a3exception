@@ -2,4 +2,4 @@
 
 ## 0.1.0
 
-1. add 
+1. add errors
