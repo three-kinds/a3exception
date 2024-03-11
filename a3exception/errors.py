@@ -72,6 +72,13 @@ class NotAvailableError(Error):
         super().__init__(message=message, **kwargs)
 
 
+class ClientPanicError(Error):
+    error_type = ErrorType.ClientSideError
+
+    def __init__(self, message: str, **kwargs):
+        super().__init__(message=message, **kwargs)
+
+
 # server error below
 
 

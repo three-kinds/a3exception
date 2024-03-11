@@ -1,5 +1,9 @@
 # History
 
+## 0.1.2
+
+* add DynamicErrorFactory
+
 ## 0.1.1
 
 * fix: add tests to sdist
