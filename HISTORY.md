@@ -1,5 +1,9 @@
 # History
 
+## 0.1.3
+
+* update: DynamicErrorFactory on multi threads
+
 ## 0.1.2
 
 * add DynamicErrorFactory

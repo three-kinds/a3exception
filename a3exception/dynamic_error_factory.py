@@ -24,9 +24,12 @@ class DynamicErrorFactory:
         if err_cls is None:
             raise errors.ClientPanicError(f"Not found error by status: {status}")
 
-        self_init = err_cls.__init__
-        err_cls.__init__ = errors.Error.__init__ # noqa
-        error_instance = err_cls(**kwargs)
-        err_cls.__init__ = self_init
+        params = {
+            'message': None,
+            'cause': None,
+            'detail': None
+        }
+        params.update(kwargs)
+        error_instance = err_cls(**params)
 
         return error_instance
