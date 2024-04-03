@@ -1,5 +1,9 @@
 # History
 
+## 0.1.4
+
+* add: AuthenticationFailed
+
 ## 0.1.3
 
 * update: DynamicErrorFactory on multi threads

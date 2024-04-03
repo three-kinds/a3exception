@@ -30,6 +30,13 @@ class Error(Exception):
         return self.cause
 
 
+class AuthenticationFailed(Error):
+    error_type = ErrorType.ClientSideError
+
+    def __init__(self, message: str, **kwargs):
+        super().__init__(message=message, **kwargs)
+
+
 class ClientKnownError(Error):
     error_type = ErrorType.ClientSideError
 
