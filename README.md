@@ -1,8 +1,6 @@
 # a3exception
 
-Framework-agnostic exception component.
-
-[History.](HISTORY.md)
+`a3exception` is a package for unifying exceptions.
 
 ## Install
 

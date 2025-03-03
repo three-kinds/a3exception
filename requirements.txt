@@ -1,5 +1,1 @@
-a3py
-
-# 测试与维护
-coverage >= 6.3.2
-twine
+a3py >= 0.3.0
