@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from typing import Type
+from typing import Type, Dict
 from a3exception import errors
 from a3py.practical.dynamic import find_all_subclasses
 
 
 class DynamicErrorFactory:
     _has_build_cache = False
-    _cache_errors = dict()
+    _cache_errors: Dict[str, Type[errors.Error]] = dict()
 
     @classmethod
     def add_custom_error_cls(cls, err_cls: Type[errors.Error]):

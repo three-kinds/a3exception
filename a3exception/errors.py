@@ -1,24 +1,23 @@
 # -*- coding: utf-8 -*-
-from enum import Enum
 
 
-class ErrorType(str, Enum):
+class ErrorType:
     UnsetError = "UnsetError"
     ServerSideError = "ServerSideError"
     ClientSideError = "ClientSideError"
 
 
 class Error(Exception):
-    error_type: ErrorType = ErrorType.UnsetError
+    error_type = ErrorType.UnsetError
     message = None
 
     def __init__(
         self,
-        message: str = None,
-        cause: str = None,
-        detail: dict = None,
-        status: str = None,
-        error_type: ErrorType | None = None,
+        message: str | None = None,
+        cause: str | None = None,
+        detail: dict | None = None,
+        status: str | None = None,
+        error_type: str | None = None,
     ):
         self.message = message or self.message
         self.cause = cause
