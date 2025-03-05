@@ -1,33 +1,33 @@
 # a3exception
 
-English | [简体中文](README_ZH.md)
+[English](README.md) | 简体中文
 
-`a3exception` is a package for unifying exceptions.
+`a3exception`是一个用于统一异常的包。
 
-## 1. Introduction
+## 1. 简介
 
 ### errors
 
-* Base exception: Error
-* Predefined client exceptions: ValidationError, NotFoundError ...
-* Predefined server exceptions: ServerKnownError, ServerUnknownError
-* Predefined common exceptions: PanicError
+* 基类异常: Error
+* 预设的客户端异常: ValidationError, NotFoundError ...
+* 预设的服务端异常: ServerKnownError, ServerUnknownError
+* 预设的通用异常: PanicError
 
 ### DynamicErrorFactory
 
-* Generate a exception dynamically according to the dictionary: build_error_by_status
-* Add a custom exception: add_custom_error_cls
+* 根据字典动态生成异常: build_error_by_status
+* 添加自定义异常: add_custom_error_cls
 
-## 2. Usage
+## 2. 使用
 
-### Install
+### 安装
 
 ```shell
 pip install a3exception
 
 ```
 
-### Examples
+### 样例
 
 ```python
 from a3exception.dynamic_error_factory import DynamicErrorFactory
