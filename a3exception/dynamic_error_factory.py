@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import Type
 from a3exception import errors
-from a3py.simplified.dynamic import find_all_subclasses
+from a3py.practical.dynamic import find_all_subclasses
 
 
 class DynamicErrorFactory:
@@ -22,13 +22,11 @@ class DynamicErrorFactory:
 
         err_cls = cls._cache_errors.get(status)
         if err_cls is None:
-            raise errors.ClientPanicError(f"Not found error by status: {status}")
+            raise errors.PanicError(
+                f"This custom error has not been added `{status}`, please use `add_custom_error_cls` to add it."
+            )
 
-        params = {
-            'message': None,
-            'cause': None,
-            'detail': None
-        }
+        params = {"message": None, "cause": None, "detail": None}
         params.update(kwargs)
         error_instance = err_cls(**params)
 

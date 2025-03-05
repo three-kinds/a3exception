@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*-
+from enum import Enum
 
-class ErrorType:
-    ServerSideError = 'ServerSideError'
-    ClientSideError = 'ClientSideError'
+
+class ErrorType(str, Enum):
+    UnsetError = "UnsetError"
+    ServerSideError = "ServerSideError"
+    ClientSideError = "ClientSideError"
 
 
 class Error(Exception):
-    error_type = None
+    error_type: ErrorType = ErrorType.UnsetError
     message = None
 
     def __init__(
-            self,
-            message: str = None,
-            cause: str = None,
-            detail: dict = None,
-            status: str = None,
-            error_type: str = None
+        self,
+        message: str = None,
+        cause: str = None,
+        detail: dict = None,
+        status: str = None,
+        error_type: ErrorType | None = None,
     ):
         self.message = message or self.message
         self.cause = cause
@@ -30,14 +33,7 @@ class Error(Exception):
         return self.cause
 
 
-class AuthenticationFailed(Error):
-    error_type = ErrorType.ClientSideError
-
-    def __init__(self, message: str, **kwargs):
-        super().__init__(message=message, **kwargs)
-
-
-class ClientKnownError(Error):
+class AuthenticationFailedError(Error):
     error_type = ErrorType.ClientSideError
 
     def __init__(self, message: str, **kwargs):
@@ -79,19 +75,22 @@ class NotAvailableError(Error):
         super().__init__(message=message, **kwargs)
 
 
-class ClientPanicError(Error):
+# client common error below
+
+
+class ClientKnownError(Error):
     error_type = ErrorType.ClientSideError
 
     def __init__(self, message: str, **kwargs):
         super().__init__(message=message, **kwargs)
 
 
-# server error below
+# server common error below
 
 
 class ServerKnownError(Error):
     error_type = ErrorType.ServerSideError
-    message = "服务侧发生了早已预料的错误"
+    message = "A known error has occurred on the service side."
 
     def __init__(self, cause: str, **kwargs):
         super().__init__(cause=cause, **kwargs)
@@ -99,7 +98,15 @@ class ServerKnownError(Error):
 
 class ServerUnknownError(Error):
     error_type = ErrorType.ServerSideError
-    message = "服务侧发生了始料未及的错误"
+    message = "An unexpected error has occurred on the service side."
 
     def __init__(self, cause: str, **kwargs):
         super().__init__(cause=cause, **kwargs)
+
+
+# common error below
+
+
+class PanicError(Error):
+    def __init__(self, message: str, **kwargs):
+        super().__init__(message=message, **kwargs)
