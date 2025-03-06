@@ -2,13 +2,12 @@
 
 
 class ErrorType:
-    UnsetError = "UnsetError"
     ServerSideError = "ServerSideError"
     ClientSideError = "ClientSideError"
 
 
 class Error(Exception):
-    error_type = ErrorType.UnsetError
+    error_type = None
     message = None
 
     def __init__(
@@ -24,6 +23,7 @@ class Error(Exception):
         self.detail = detail
         self.status = status or self.__class__.__name__
         self.error_type = error_type or self.error_type
+        assert self.error_type is not None, "error_type must be set."
 
     def __str__(self):
         return self.message
@@ -101,11 +101,3 @@ class ServerUnknownError(Error):
 
     def __init__(self, cause: str, **kwargs):
         super().__init__(cause=cause, **kwargs)
-
-
-# common error below
-
-
-class PanicError(Error):
-    def __init__(self, message: str, **kwargs):
-        super().__init__(message=message, **kwargs)

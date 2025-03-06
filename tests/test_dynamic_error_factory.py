@@ -16,10 +16,3 @@ class T(unittest.TestCase):
             status=errors.NotAvailableError.__name__
         )
         self.assertTrue(isinstance(error, errors.NotAvailableError))
-
-    def test__build_error_by_status__error(self):
-        class CustomError(errors.Error):
-            error_type = None
-
-        with self.assertRaises(errors.PanicError):
-            DynamicErrorFactory.build_error_by_status(status=CustomError.__name__)

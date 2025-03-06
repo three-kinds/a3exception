@@ -2,7 +2,7 @@
 
 English | [简体中文](README_ZH.md)
 
-`a3exception` is a package for unifying exceptions.
+`a3exception` is a package for unifying exceptions during front-end and back-end communication.
 
 ## 1. Introduction
 
@@ -11,7 +11,6 @@ English | [简体中文](README_ZH.md)
 * Base exception: Error
 * Predefined client exceptions: ValidationError, NotFoundError ...
 * Predefined server exceptions: ServerKnownError, ServerUnknownError
-* Predefined common exceptions: PanicError
 
 ### DynamicErrorFactory
 

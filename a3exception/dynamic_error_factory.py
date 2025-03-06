@@ -21,10 +21,9 @@ class DynamicErrorFactory:
             cls._has_build_cache = True
 
         err_cls = cls._cache_errors.get(status)
-        if err_cls is None:
-            raise errors.PanicError(
-                f"This custom error has not been added `{status}`, please use `add_custom_error_cls` to add it."
-            )
+        assert err_cls is not None, (
+            f"This custom error has not been added `{status}`, please use `add_custom_error_cls` to add it."
+        )
 
         params = {"message": None, "cause": None, "detail": None}
         params.update(kwargs)

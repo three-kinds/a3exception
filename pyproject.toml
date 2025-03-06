@@ -12,7 +12,7 @@ dependencies = [
 authors = [
   {name = "three-kinds", email = "3179158552@qq.com"},
 ]
-description = "a3exception is a package for unifying exceptions."
+description = "a3exception  is a package for unifying exceptions during front-end and back-end communication."
 readme = "README.md"
 license = {text = "MIT"}
 classifiers = [
@@ -55,3 +55,4 @@ src = [
     "a3exception",
     "tests"
 ]
+line-length = 120

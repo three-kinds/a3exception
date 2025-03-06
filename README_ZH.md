@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-`a3exception`是一个用于统一异常的包。
+`a3exception`是一个用于在前后端通讯时统一异常的包。
 
 ## 1. 简介
 
@@ -11,7 +11,6 @@
 * 基类异常: Error
 * 预设的客户端异常: ValidationError, NotFoundError ...
 * 预设的服务端异常: ServerKnownError, ServerUnknownError
-* 预设的通用异常: PanicError
 
 ### DynamicErrorFactory
 
