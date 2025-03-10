@@ -8,9 +8,7 @@ class T(unittest.TestCase):
     def test__error(self):
         message = "message"
         cause = "cause"
-        error = errors.Error(
-            error_type=errors.ErrorType.ClientSideError, message=message, cause=cause
-        )
+        error = errors.Error(error_type=errors.ErrorType.ClientSideError, message=message, cause=cause)
 
         self.assertEqual(str(error), message)
         self.assertEqual(repr(error), cause)
